@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  float: right;
+  flex-wrap: wrap;
+  background-image: url(./images/background.jpg);
+  cursor: url('images/cursor.png'), auto;
+}
+
+div {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 270px;
+    height: 350px;
+    perspective: 1000px;
+}
+
+.card {
+    transition: transform 2s;
+    transform-style: preserve-3d;
+    display: none;
+}
+
+.front, .back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+}
+
+.front {
+    width: 320px;
+    height: 360px;
+    background-image: url("./images/Cardback.png");
+    background-repeat: no-repeat;
+    background-size: 320px 360px;
+    transform: scale(1);
+    transition: 0.4s ease;
+}
+
+.front:hover {
+    transform: scale(1.04);
+    transition: 0.4s ease;
+}
+
+.back {
+    width: 240px;
+    height: 320px;
+    background-image: url("./images/cards/1.png");
+    background-repeat: no-repeat;
+    background-size: 240px 320px;
+    transform: rotateY(-180deg);
+}
+
+.pack {
+    position: absolute;
+    top: 280px;
+    left: 60px;
+    width: 140px;
+    height: 180px;
+    background-image: url("./images/pack.png");
+    background-repeat: no-repeat;
+    background-size: 140px 180px;
+}
+
+#pack:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+  
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
